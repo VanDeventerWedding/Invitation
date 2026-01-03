@@ -22,7 +22,7 @@
       justify-content: center;
     }
 
-    /* FULL background */
+    /* Full background */
     .page-bg {
       position: fixed;
       inset: 0;
@@ -31,12 +31,34 @@
     }
 
     .card {
+      position: relative;
       background: #fff;
       width: 900px;
       max-width: 95vw;
       display: grid;
       grid-template-columns: 1fr 1fr;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    /* Decorative flowers */
+    .flower {
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.95;
+    }
+
+    .flower-top-left {
+      top: -40px;
+      left: -40px;
+      width: 240px;
+    }
+
+    .flower-bottom-right {
+      bottom: -40px;
+      right: -40px;
+      width: 240px;
     }
 
     .card-image img {
@@ -69,7 +91,7 @@
 
     .names {
       font-family: 'Allura', cursive;
-      font-size: 52px;
+      font-size: 54px;
       color: #222;
       margin-bottom: 10px;
     }
@@ -84,8 +106,8 @@
     .calendar {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      gap: 12px;
-      font-size: 13px;
+      gap: 14px;
+      font-size: 14px;
       color: #555;
     }
 
@@ -95,26 +117,26 @@
     }
 
     .calendar div {
-      height: 34px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
     }
 
-    /* HEART WITH NUMBER INSIDE */
+    /* BIG HEART with number inside */
     .calendar .heart {
-      width: 46px;
-      height: 42px;
+      width: 58px;
+      height: 52px;
       background: url("heart-nobg.png") no-repeat center / contain;
       font-weight: 500;
       color: #222;
     }
 
     .calendar .heart span {
+      font-size: 16px;
       position: relative;
       top: 2px;
-      font-size: 13px;
     }
 
     .audio-btn {
@@ -143,12 +165,8 @@
       color: #999;
     }
 
-    /* 📱 MOBILE IMPROVEMENTS */
+    /* Mobile */
     @media (max-width: 768px) {
-      body {
-        padding: 0;
-      }
-
       .card {
         grid-template-columns: 1fr;
         width: 100%;
@@ -159,16 +177,8 @@
         padding: 36px 24px;
       }
 
-      .small-title {
-        font-size: 14px;
-      }
-
-      .subtitle {
-        font-size: 13px;
-      }
-
       .names {
-        font-size: 46px;
+        font-size: 48px;
       }
 
       .month {
@@ -176,21 +186,33 @@
       }
 
       .calendar {
-        gap: 14px;
-        font-size: 14px;
+        gap: 16px;
+        font-size: 15px;
       }
 
       .calendar div {
-        height: 38px;
+        height: 44px;
       }
 
       .calendar .heart {
-        width: 44px;
-        height: 40px;
+        width: 64px;
+        height: 58px;
       }
 
       .calendar .heart span {
-        font-size: 14px;
+        font-size: 17px;
+      }
+
+      .flower-top-left {
+        width: 180px;
+        top: -25px;
+        left: -25px;
+      }
+
+      .flower-bottom-right {
+        width: 180px;
+        bottom: -25px;
+        right: -25px;
       }
     }
   </style>
@@ -200,6 +222,11 @@
   <div class="page-bg"></div>
 
   <div class="card">
+
+    <!-- Baby’s breath decorations -->
+    <img src="corner.png" class="flower flower-top-left" alt="">
+    <img src="corner-btm.png" class="flower flower-bottom-right" alt="">
+
     <!-- LEFT IMAGE -->
     <div class="card-image">
       <img src="gabs_std.jpeg" alt="Couple Photo">
@@ -210,9 +237,7 @@
       <div class="small-title">Save the Date</div>
       <div class="subtitle">For the wedding of</div>
 
-      <div class="names">
-        Gabby + Deon
-      </div>
+      <div class="names">Gabby + Deon</div>
 
       <div class="month">September 2026</div>
 
@@ -228,10 +253,12 @@
         <div></div><div></div>
         <div>1</div><div>2</div><div>3</div><div>4</div>
         <div>5</div><div>6</div><div>7</div><div>8</div>
-        <div>9</div><div>10</div><div>11</div>
+        <div>9</div><div>10</div>
+
+        <div class="heart"><span>11</span></div>
+
         <div>12</div><div>13</div><div>14</div><div>15</div>
-        <div>16</div><div>17</div>
-        <div class="heart"><span>18</span></div>
+        <div>16</div><div>17</div><div>18</div>
         <div>19</div><div>20</div><div>21</div><div>22</div>
         <div>23</div><div>24</div><div>25</div>
         <div>26</div><div>27</div><div>28</div><div>29</div>

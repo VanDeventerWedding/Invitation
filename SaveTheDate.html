@@ -50,15 +50,15 @@
     }
 
     .flower-top-left {
-      top: -20px;      /* moved slightly in */
-      left: -20px;     /* moved slightly in */
-      width: 320px;    /* bigger */
+      top: -20px;
+      left: -20px;
+      width: 320px;
     }
 
     .flower-bottom-right {
-      bottom: -20px;   /* moved slightly in */
-      right: -20px;    /* moved slightly in */
-      width: 320px;    /* bigger */
+      bottom: -20px;
+      right: -20px;
+      width: 320px;
     }
 
     .card-image img {
@@ -159,12 +159,19 @@
       transform: translateY(-2px);
     }
 
+    /* Footer text moved above flower */
     .footer {
-      margin-top: 28px;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
       font-size: 11px;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #999;
+      z-index: 10;
+      background: rgba(255,255,255,0.8);
+      padding: 4px 8px;
+      border-radius: 4px;
     }
 
     /* MOBILE — keep layout, hide background only */
@@ -211,15 +218,22 @@
       }
 
       .flower-top-left {
-        width: 240px;   /* bigger on mobile too */
+        width: 240px;
         top: -10px;
         left: -10px;
       }
 
       .flower-bottom-right {
-        width: 240px;   /* bigger on mobile too */
+        width: 240px;
         bottom: -10px;
         right: -10px;
+      }
+
+      .footer {
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+        padding: 3px 6px;
       }
     }
   </style>
@@ -268,12 +282,15 @@
       </div>
 
       <audio id="audio1" src="vn-gabs.ogg"></audio>
-      <audio id="audio2" src="vn-gabs-music.ogg" loop></audio>
+      <audio id="audio2" src="bvn-gabs-music.ogg" loop></audio>
 
-      <div class="footer">
-        Formal Invitation to Follow
-      </div>
     </div>
+
+    <!-- Footer moved above bottom-right flower -->
+    <div class="footer">
+      Formal Invitation to Follow
+    </div>
+
   </div>
 
    <script>

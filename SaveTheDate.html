@@ -300,17 +300,9 @@
 
   a1.currentTime = 0;
   a2.currentTime = 0;
-  a2.volume = 0.3;
 
+  a2.play();
   a1.play();
-
-  // Start audio2 half a second before audio1 ends
-  a1.addEventListener('timeupdate', function startSecond() {
-    if (a1.duration - a1.currentTime <= 0.5) {
-      a2.play();
-      a1.removeEventListener('timeupdate', startSecond);
-    }
-  });
 }
 
   </script>

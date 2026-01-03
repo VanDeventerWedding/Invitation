@@ -217,6 +217,19 @@
     }
   </style>
 </head>
+  <script>
+  function playAudio() {
+    const audio1 = document.getElementById('audio1');
+    const audio2 = document.getElementById('audio2');
+
+    audio1.currentTime = 0;
+    audio2.currentTime = 0;
+
+    audio1.play();
+    audio2.play();
+  }
+</script>
+
 <body>
 
   <div class="page-bg"></div>
@@ -234,11 +247,8 @@
 
     <!-- RIGHT CONTENT -->
     <div class="card-content">
-      
-      <button class="audio-btn" onclick="document.getElementById('audio').play()">
-        Click Me
-      </button>
-      
+      <button class="audio-btn" onclick="playAudio()">
+<br/>
       <div class="small-title">Save the Date</div>
       <div class="subtitle">For the wedding of</div>
 
@@ -268,7 +278,8 @@
         <div>30</div>
       </div>
 
-      <audio id="audio" src="vn-gabs.ogg"></audio>
+      <audio id="audio1" src="vn-gabs.ogg"></audio>
+      <audio id="audio2" src="vn-gabs-music.ogg"></audio>
 
       <div class="footer">
         Formal Invitation to Follow

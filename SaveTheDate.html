@@ -282,7 +282,7 @@
       </div>
 
       <audio id="audio1" src="vn-gabs.ogg"></audio>
-      <audio id="audio2" src="vn-gabs-music.ogg" loop></audio>
+      <audio id="audio2" src="vn-gabs-music.ogg"></audio>
 
     </div>
 
@@ -294,16 +294,25 @@
   </div>
 
    <script>
-    function playAudio() {
-      const a1 = document.getElementById('audio1');
-      const a2 = document.getElementById('audio2');
+  function playAudio() {
+  const a1 = document.getElementById('audio1');
+  const a2 = document.getElementById('audio2');
 
-      a1.currentTime = 0;
-      a2.currentTime = 0;
+  a1.currentTime = 0;
+  a2.currentTime = 0;
+  a2.volume = 0.3;
 
-      a1.play();
+  a1.play();
+
+  // Start audio2 half a second before audio1 ends
+  a1.addEventListener('timeupdate', function startSecond() {
+    if (a1.duration - a1.currentTime <= 0.5) {
       a2.play();
+      a1.removeEventListener('timeupdate', startSecond);
     }
+  });
+}
+
   </script>
 </body>
 </html>

@@ -136,23 +136,29 @@
       top: 2px;
     }
 
+     /* Audio button */
     .audio-btn {
-      margin-top: 32px;
-      padding: 12px 26px;
+      margin: 30px 0 26px;
+      padding: 14px 36px;
       font-size: 12px;
-      letter-spacing: 1.5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      border: 1px solid #ccc;
-      background: transparent;
+      font-weight: 500;
+      border-radius: 40px;
+      border: 1px solid #ddd;
+      background: rgba(255, 255, 255, 0.9);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
     }
 
     .audio-btn:hover {
       background: #222;
       color: #fff;
       border-color: #222;
+      transform: translateY(-2px);
     }
+
 
     .footer {
       margin-top: 28px;
@@ -216,6 +222,8 @@
         bottom: -25px;
         right: -25px;
       }
+
+      
     }
   </style>
 </head>
@@ -234,7 +242,7 @@
 
     <div class="card-content">
 
-      <button class="audio-btn" onclick="document.getElementById('audio').play()">
+       <button class="audio-btn" onclick="playAudio()">
         Click Me
       </button>
 
@@ -262,7 +270,8 @@
         <div>30</div>
       </div>
 
-      <audio id="audio" src="vn-gabs.ogg"></audio>
+      <audio id="audio1" src="vn-gabs.ogg"></audio>
+      <audio id="audio2" src="bg-music.mp3" loop></audio>
 
       <div class="footer">
         Formal Invitation to Follow
@@ -270,5 +279,18 @@
     </div>
   </div>
 
+   <script>
+    function playAudio() {
+      const a1 = document.getElementById('audio1');
+      const a2 = document.getElementById('audio2');
+
+      a1.currentTime = 0;
+      a2.currentTime = 0;
+      a2.volume = 0.3;
+
+      a1.play();
+      a2.play();
+    }
+  </script>
 </body>
 </html>

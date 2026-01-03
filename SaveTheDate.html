@@ -73,6 +73,42 @@
       text-align: center;
     }
 
+    /* Audio button */
+    .audio-btn {
+      margin-top: 32px;
+      margin-bottom: 26px;
+      padding: 14px 36px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+
+      border: 1px solid #ddd;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.85);
+
+      cursor: pointer;
+      transition: all 0.35s ease;
+
+      box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.12);
+    }
+
+    .audio-btn:hover {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+      transform: translateY(-2px);
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .audio-btn:active {
+      transform: translateY(0);
+      box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.14);
+    }
+
     .small-title {
       font-size: 13px;
       letter-spacing: 2px;
@@ -124,7 +160,7 @@
       position: relative;
     }
 
-    /* BIG HEART with number inside */
+    /* Big heart */
     .calendar .heart {
       width: 58px;
       height: 52px;
@@ -139,24 +175,6 @@
       top: 2px;
     }
 
-    .audio-btn {
-      margin-top: 32px;
-      padding: 12px 26px;
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border: 1px solid #ccc;
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .audio-btn:hover {
-      background: #222;
-      color: #fff;
-      border-color: #222;
-    }
-
     .footer {
       margin-top: 28px;
       font-size: 11px;
@@ -169,8 +187,6 @@
     @media (max-width: 768px) {
       .card {
         grid-template-columns: 1fr;
-        width: 100%;
-        max-width: 100%;
       }
 
       .card-content {
@@ -181,55 +197,18 @@
         font-size: 48px;
       }
 
-      .month {
-        font-size: 16px;
-      }
-
-      .calendar {
-        gap: 16px;
-        font-size: 15px;
-      }
-
-      .calendar div {
-        height: 44px;
-      }
-
       .calendar .heart {
         width: 64px;
         height: 58px;
       }
 
-      .calendar .heart span {
-        font-size: 17px;
-      }
-
-      .flower-top-left {
-        width: 180px;
-        top: -25px;
-        left: -25px;
-      }
-
+      .flower-top-left,
       .flower-bottom-right {
         width: 180px;
-        bottom: -25px;
-        right: -25px;
       }
     }
   </style>
 </head>
-  <script>
-  function playAudio() {
-    const audio1 = document.getElementById('audio1');
-    const audio2 = document.getElementById('audio2');
-
-    audio1.currentTime = 0;
-    audio2.currentTime = 0;
-
-    audio2.play();
-    audio1.play();
-  }
-</script>
-
 <body>
 
   <div class="page-bg"></div>
@@ -247,8 +226,11 @@
 
     <!-- RIGHT CONTENT -->
     <div class="card-content">
-      <button class="audio-btn" onclick="playAudio()">Click me</button>
-<br/>
+
+      <button class="audio-btn" onclick="playAudio()">
+        Click Me!
+      </button>
+
       <div class="small-title">Save the Date</div>
       <div class="subtitle">For the wedding of</div>
 
@@ -270,7 +252,7 @@
         <div>5</div><div>6</div><div>7</div><div>8</div>
         <div>9</div><div>10</div><div>11</div><div>12</div>
         <div>13</div><div>14</div><div>15</div>
-        <div>16</div><div>17</div><div>18</div>    
+        <div>16</div><div>17</div><div>18</div>
         <div class="heart"><span>19</span></div>
         <div>20</div><div>21</div><div>22</div>
         <div>23</div><div>24</div><div>25</div>
@@ -279,13 +261,32 @@
       </div>
 
       <audio id="audio1" src="vn-gabs.ogg"></audio>
-      <audio id="audio2" src="vn-gabs-music.ogg"></audio>
+      <audio id="audio2" src="bg-music.mp3" loop></audio>
 
       <div class="footer">
         Formal Invitation to Follow
       </div>
+
     </div>
   </div>
+
+  <script>
+    function playAudio() {
+      const audio1 = document.getElementById('audio1');
+      const audio2 = document.getElementById('audio2');
+
+      audio1.pause();
+      audio2.pause();
+
+      audio1.currentTime = 0;
+      audio2.currentTime = 0;
+
+      audio2.volume = 0.3;
+
+      audio1.play();
+      audio2.play();
+    }
+  </script>
 
 </body>
 </html>
